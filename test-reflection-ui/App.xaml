@@ -1,0 +1,26 @@
+﻿<Application x:Class="test_reflection_ui.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:test_reflection_ui"
+             StartupUri="/MainWindow/MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="Back" Color="DarkGreen" Opacity="0.5"></SolidColorBrush>
+        <Style x:Key="GlobalTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            <Setter Property="Background" Value="{StaticResource Back}"></Setter>
+            <Setter Property="Foreground" Value="WhiteSmoke"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="GlobalButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Background" Value="{StaticResource Back}"></Setter>
+            <Setter Property="Foreground" Value="WhiteSmoke"></Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+        </Style>
+    </Application.Resources>
+</Application>

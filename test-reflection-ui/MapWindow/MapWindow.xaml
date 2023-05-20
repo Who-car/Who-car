@@ -1,0 +1,36 @@
+<Window x:Class="test_reflection_ui.MapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dataGrid2D="http://gu.se/DataGrid2D"
+        xmlns:local="clr-namespace:test_reflection_ui"
+        mc:Ignorable="d"
+        Title="MapWindow" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    
+    <Grid x:Name="grid1">
+        <Grid.Resources>
+            <DataTemplate x:Key="MyCellTemplate">
+                 <Border Background="{Binding Background, ElementName=grid1}">
+                     <Image Source="{Binding ImageValue, Mode=OneWay}" Width="39" Height="39"></Image>
+                 </Border>
+            </DataTemplate>
+        </Grid.Resources>
+        <Grid.Background>
+            <ImageBrush ImageSource="{Binding BackgroundImage, Mode=OneWay}" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <DataGrid x:Name="grid" HeadersVisibility="None" dataGrid2D:ItemsSource.Array2D="{Binding Map, Mode=OneWay}"
+                  VerticalAlignment="Center" HorizontalAlignment="Center" 
+                  dataGrid2D:Cell.Template="{StaticResource MyCellTemplate}">
+        </DataGrid>
+        <Button Style="{StaticResource GlobalButtonStyle}" Content="Запустить заново" 
+                Margin="30, 0, 0, 60" Click="Restart"
+                Width="280" Height="45" FontSize="25" HorizontalAlignment="Left"/>
+        <Button Style="{StaticResource GlobalButtonStyle}" Content="{Binding ButtonText, Mode=OneWay}" 
+                Margin="30, 60, 0, 0" Click="SwitchMode"
+                Width="280" Height="45" FontSize="25" HorizontalAlignment="Left"/>
+        <Button Style="{StaticResource GlobalButtonStyle}" Content="Выход" 
+                Margin="0, 0, 30, 30" Click="Exit"
+                Width="250" Height="45" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

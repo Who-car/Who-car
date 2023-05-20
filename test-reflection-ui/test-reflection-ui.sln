@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test-reflection-ui", "test-reflection-ui.csproj", "{E0389F6C-A7A5-4D68-B442-6C60CB7D5585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treaty", "..\Treaty\Treaty.csproj", "{54EA4FF2-AC9E-46ED-B769-2B9EC4E5ABED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0389F6C-A7A5-4D68-B442-6C60CB7D5585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0389F6C-A7A5-4D68-B442-6C60CB7D5585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0389F6C-A7A5-4D68-B442-6C60CB7D5585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0389F6C-A7A5-4D68-B442-6C60CB7D5585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54EA4FF2-AC9E-46ED-B769-2B9EC4E5ABED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54EA4FF2-AC9E-46ED-B769-2B9EC4E5ABED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54EA4FF2-AC9E-46ED-B769-2B9EC4E5ABED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54EA4FF2-AC9E-46ED-B769-2B9EC4E5ABED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

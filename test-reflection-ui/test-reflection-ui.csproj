@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <RootNamespace>test_reflection_ui</RootNamespace>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Gu.Wpf.DataGrid2D" Version="0.2.4" />
+      <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+      <PackageReference Include="System.Drawing.Common" Version="8.0.0-preview.2.23128.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Treaty\Treaty.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="images\lawn.jpg" />
+      <None Remove="images\rabbit.png" />
+      <Resource Include="images\rabbit.png" />
+      <None Remove="images\wolf.png" />
+      <Resource Include="images\wolf.png" />
+      <None Remove="images\forreast.png" />
+      <None Remove="images\background.jpg" />
+      <None Remove="images\forrest_light.jpg" />
+      <Resource Include="images\forrest_light.jpg" />
+      <None Remove="images\background.png" />
+      <Resource Include="images\background.png" />
+      <None Remove="images\forrest_dark.jpg" />
+      <Resource Include="images\forrest_dark.jpg" />
+    </ItemGroup>
+
+</Project>
