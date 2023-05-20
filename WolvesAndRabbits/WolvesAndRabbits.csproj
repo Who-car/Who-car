@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="GUI-Map-treaty" Version="1.0.1" />
+      <PackageReference Include="Treaty" Version="1.3.0" />
+    </ItemGroup>
+
 </Project>
