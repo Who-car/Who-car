@@ -16,7 +16,7 @@ public class MainModel : BindableBase
     public int FirstDimension { get; set; }
     public int SecondDimension { get; set; }
     public int[,] Map => _instance is null ? new int[FirstDimension, SecondDimension] : _instance.GetMap();
-    public delegate void ErrorHandler();
+    public delegate void ErrorHandler(ErrorArgs args);
     public ErrorHandler? OnError;
     
     private void BeforeLoading()
@@ -25,9 +25,7 @@ public class MainModel : BindableBase
         _instanceType = _assembly.GetTypes().FirstOrDefault(x => x.IsAssignableTo(typeof(IMapManager)))!;
         if (_instanceType is null)
         {
-            MessageBox.Show("Кажется, ваша сборка не содержит решения задачи. Вероятнее всего, вы загрузили " +
-                            "не ту сборку, либо не реализовали высланный мною контракт :D");
-            OnError!.Invoke();
+            OnError!.Invoke(new ErrorArgs(ErrorType.WrongAssembly));
         }
         else
         {

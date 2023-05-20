@@ -9,21 +9,21 @@ public partial class MapWindow : Window
     private readonly MapVm _vm;
     private CancellationTokenSource _cts;
 
-    public MapWindow(MainModel model)
+    public MapWindow(MainModel model, ICodeBehind codeBehind)
     {
         InitializeComponent();
-        var vmM = new MapVm(model, () =>
+        var vmM = new MapVm(model, args =>
         {
-            MessageBox.Show("Произошла ошибка");
+            MessageBox.Show(args.ErrorMessage);
             this.Close();
         });
         DataContext = vmM;
         _vm = vmM;
         _vm.LoadMap.Execute();
-        this.Loaded += MapUpdate;
+        this.Loaded += MapUpdateAsync;
     }
 
-    private async void MapUpdate(object sender, RoutedEventArgs args)
+    private async void MapUpdateAsync(object sender, RoutedEventArgs args)
     {
         _cts = new CancellationTokenSource();
         await Task.Run(async () =>
@@ -42,7 +42,7 @@ public partial class MapWindow : Window
     {
         _cts.Cancel();
         _vm.Restart.Execute();
-        MapUpdate(this, new RoutedEventArgs());
+        MapUpdateAsync(this, new RoutedEventArgs());
     }
 
     private void SwitchMode(object sender, RoutedEventArgs e)

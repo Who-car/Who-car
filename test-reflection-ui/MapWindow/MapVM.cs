@@ -18,8 +18,8 @@ public class MapVm : BindableBase
     }
     
     public BitmapImage BackgroundImage => _isDark 
-        ? new BitmapImage(new Uri(@"D:\homework\test-reflection\test-reflection-ui\test-reflection-ui\images\forrest_dark.jpg", UriKind.Absolute)) 
-        : new BitmapImage(new Uri(@"D:\homework\test-reflection\test-reflection-ui\test-reflection-ui\images\forrest_light.jpg", UriKind.Absolute)); 
+        ? new BitmapImage(new Uri(@"D:\homework\test-reflection\test-reflection-ui\images\forrest_dark.jpg", UriKind.Absolute)) 
+        : new BitmapImage(new Uri(@"D:\homework\test-reflection\test-reflection-ui\images\forrest_light.jpg", UriKind.Absolute)); 
     public string ButtonText => _isDark 
         ? "Да будет свет" 
         : "Пусть спустится тьма";
@@ -27,7 +27,7 @@ public class MapVm : BindableBase
     public DelegateCommand StartTask { get; }
     public DelegateCommand Restart { get; }
     public DelegateCommand SwitchMode { get; }
-    public delegate void ErrorHandler();
+    public delegate void ErrorHandler(ErrorArgs args);
     public MapVm(MainModel model, ErrorHandler handler)
     {
         _model = model;

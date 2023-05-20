@@ -22,12 +22,13 @@ namespace test_reflection_ui
                 case TypeView.Settings:
                     var viewSettings = new Settings();
                     var vmS = new SettingsVm(Model, this);
+                    vmS.OnError = args => MessageBox.Show(args.ErrorMessage);
                     viewSettings.DataContext = vmS;
                     this.DataContext = vmS;
                     this.Content = viewSettings;
                     break;
                 case TypeView.Map:
-                    var viewMap = new MapWindow(Model);
+                    var viewMap = new MapWindow(Model, this);
                     viewMap.Show();
                     this.Close();
                     break;

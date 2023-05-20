@@ -19,10 +19,10 @@ public class DataGridItem : BindableBase
                 switch (value)
                 {
                     case 2:
-                        ImageValue = new BitmapImage(new Uri(@"D:\homework\test-reflection\test-reflection-ui\test-reflection-ui\images\wolf.png", UriKind.Absolute));
+                        ImageValue = new BitmapImage(new Uri(@"D:\homework\test-reflection\test-reflection-ui\images\wolf.png", UriKind.Absolute));
                         break;
                     case 1:
-                        ImageValue = new BitmapImage(new Uri(@"D:\homework\test-reflection\test-reflection-ui\test-reflection-ui\images\rabbit.png", UriKind.Absolute));
+                        ImageValue = new BitmapImage(new Uri(@"D:\homework\test-reflection\test-reflection-ui\images\rabbit.png", UriKind.Absolute));
                         break;
                     default:
                         ImageValue = null;
