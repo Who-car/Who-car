@@ -10,14 +10,16 @@ public class Field : IMapManager
     private bool _isEmpty;
     private int N;
     private int M;
+    public IMapManager.UpdateHandler SourceUpdated { get; set; }
     
-    public Field(int n, int m)
+    public Field(int n, int m, IMapManager.UpdateHandler updateHandler)
     {
         _lockSlim = new ReaderWriterLockSlim();
         _field = new int[n, m];
         _isEmpty = true;
         N = n;
         M = m;
+        SourceUpdated = updateHandler;
     }
 
     public void Clear()
@@ -28,17 +30,21 @@ public class Field : IMapManager
         _isEmpty = true;
     }
 
-    public void UpdateMap()
+    public async Task UpdateMap()
     {
-        if (_isEmpty)
-            GenerateMap();
-        var tasks = new Task[M];
-        for (var i = 0; i < M; i++)
+        while (true)
         {
-            var i1 = i;
-            tasks[i1] = Task.Run(() => GoThroughColumn(i1, _field));
+            if (_isEmpty)
+                GenerateMap();
+            var tasks = new Task[M];
+            for (var i = 0; i < M; i++)
+            {
+                var i1 = i;
+                tasks[i1] = Task.Factory.StartNew(() => GoThroughColumn(i1, _field));
+            }
+            Task.WaitAll(tasks);
+            await Task.Delay(50);
         }
-        Task.WaitAll(tasks);
     }
     
     private void GoThroughColumn(int col, int[,] field)
@@ -66,6 +72,7 @@ public class Field : IMapManager
                         : 0;
                     break;
             }
+            SourceUpdated.Invoke();
         }
     }
     
@@ -96,12 +103,16 @@ public class Field : IMapManager
             if (i < 0 || i >= N || j < 0 || j >= M || i == x && j == y) continue;
             else if (field[i, j] == 1)
             {
-                var locker = new object();
-                lock (locker)
+                _lockSlim.EnterWriteLock();
+                try
                 {
                     field[i, j] = 2;
                     field[x, y] = 0;
                     return;
+                }
+                finally
+                {
+                    _lockSlim.ExitWriteLock();
                 }
             }
     }

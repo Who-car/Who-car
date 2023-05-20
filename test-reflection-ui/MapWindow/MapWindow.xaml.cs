@@ -26,15 +26,11 @@ public partial class MapWindow : Window
     private async void MapUpdateAsync(object sender, RoutedEventArgs args)
     {
         _cts = new CancellationTokenSource();
-        await Task.Run(async () =>
+        await Task.Run(() =>
         {
-            while (true)
-            {
-                if (_cts.IsCancellationRequested)
-                    return;
-                _vm.StartTask.Execute();
-                await Task.Delay(2000);
-            }
+            if (_cts.IsCancellationRequested)
+                return;
+            _vm.StartTask.Execute();
         }, _cts.Token);
     }
 

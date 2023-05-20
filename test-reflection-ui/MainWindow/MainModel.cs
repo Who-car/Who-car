@@ -30,7 +30,7 @@ public class MainModel : BindableBase
         else
         {
             _instance = (IMapManager?)_assembly.CreateInstance(_instanceType.ToString(), false, 
-                BindingFlags.ExactBinding, null, new object[] { FirstDimension, SecondDimension },
+                BindingFlags.ExactBinding, null, new object[] { FirstDimension, SecondDimension, new IMapManager.UpdateHandler(() => RaisePropertyChanged(nameof(Map))) },
                 null, null);
         }
     }
@@ -44,7 +44,6 @@ public class MainModel : BindableBase
     public void UpdateMap()
     {
         _instance!.UpdateMap();
-        RaisePropertyChanged(nameof(Map));
     }
 
     public void Restart()

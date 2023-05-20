@@ -24,7 +24,7 @@ public class SettingsVm : BindableBase
             {
                 var n = int.Parse(values[0].ToString()!);
                 var m = int.Parse(values[1].ToString()!);
-                if (n <= 0 || m <= 0 || n > 50 || m > 50)
+                if (n <= 0 || m <= 0 || n > 30 || m > 30)
                     OnError.Invoke(new ErrorArgs(ErrorType.OutOfRange));
                 else
                 {
