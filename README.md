@@ -12,13 +12,4 @@ I'm a student in Kazan Federal University, here I study Software Engineering, an
 - **Wonderful Field Desktop Application**: Client-server interaction via a custom TCP protocol with WPF framework.
 - **Homework**: My training polygone for examining all C# (and F#, too) capabilities.
 
-## Specialization
-
-- **.NET Platform**: Proficient in ASP.NET, Giraffe (F#), EntityFramework, Giraffe (F#)
-- **Others**: Experienced with git, PostgreSQL, HTML+CSS+JS, TypeScript, Vue3, Docker, Flutter
-
-## Hobbies and Interests
-
-- If you feel like you could be a nice Game Master, feel free to text me - I hope we'll have a perfect **Dungeons & Dragons** campaign)
-
 Feel free to explore my repositories, and don't hesitate to reach out if you have any questions or would like to collaborate on future projects!
